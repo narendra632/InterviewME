@@ -26,7 +26,7 @@ const Resume = () => {
             body: formData,
         });
 
-        //navigate("/interview");
+        navigate("/interview");
 
         if (response.ok) {
             const data = await response.text();

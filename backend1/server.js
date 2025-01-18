@@ -62,16 +62,10 @@ app.post('/upload', upload.single('pdf'), (req, res) => {
             fs.mkdirSync(outputDir, { recursive: true });
 
             // Define the path for the .txt file in the backend2 directory
-            const txtFilePath = path.join(outputDir, 'system_prompt.txt');
+            const txtFilePath = path.join(outputDir, 'resume.txt');
             
             // Append the extracted text to the .txt file in backend2
-            fs.appendFile(txtFilePath, text + '\n', (err) => {
-                if (err) {
-                    console.error('Error appending text to file:', err);
-                } else {
-                    console.log('Text appended to file in backend2 successfully.');
-                }
-            });
+            fs.writeFileSync(txtFilePath, text, 'utf-8');
 
             // Send the extracted text as a response
             res.send(text);

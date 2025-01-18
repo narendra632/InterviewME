@@ -12,7 +12,6 @@ const Interview = () => {
   const audioChunksRef = useRef([]);
   const socketRef = useRef(null);
 
-  // Setup WebSocket connection
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:8765");
 
@@ -37,7 +36,6 @@ const Interview = () => {
     };
   }, []);
 
-  // Camera Setup
   useEffect(() => {
     if (isCameraOn) {
       navigator.mediaDevices
@@ -57,7 +55,6 @@ const Interview = () => {
     }
   }, [isCameraOn]);
 
-  // Start recording and sending audio to backend
   const startRecording = () => {
     setIsRecording(true);
     navigator.mediaDevices
@@ -87,54 +84,71 @@ const Interview = () => {
       .catch((err) => console.error("Error accessing audio:", err));
   };
 
-  // Stop recording
   const stopRecording = () => {
     setIsRecording(false);
     mediaRecorderRef.current?.stop();
   };
 
-  const toggleCamera = () => {
-    setIsCameraOn((prev) => !prev);
-  };
 
   return (
-    <div className="interview-section">
-      {/* Camera Section */}
-      <div className="camera-box">
-        <video ref={localVideoRef} autoPlay muted className="camera-feed" />
-        <button className="camera-toggle" onClick={toggleCamera}>
-          {isCameraOn ? "Turn Off Camera" : "Turn On Camera"}
-        </button>
-      </div>
+    <div className="flex flex-col items-center p-8 space-y-8">
+      <div className="grid grid-cols-12 gap-6 w-full">
+        {/* Camera Section */}
+        <div className="col-span-8 bg-white p-4 rounded-lg shadow-md">
+          <video
+            ref={localVideoRef}
+            autoPlay
+            muted
+            className="w-full h-[480px] object-cover rounded-md"
+          />
+        </div>
 
-      {/* AI Responses */}
-      <div className="response-box">
-        <h3>AI Responses</h3>
-        <div className="response-content">
-          {messages.length ? (
-            messages.map((msg, idx) => <p key={idx}>{msg}</p>)
-          ) : (
-            <p>No responses yet...</p>
-          )}
+        {/* AI Responses */}
+        <div className="col-span-4 bg-white p-4 rounded-lg shadow-md space-y-4">
+          <h3 className="text-lg font-semibold text-gray-700">AI Responses</h3>
+          <div className="h-60 overflow-y-auto">
+            {messages.length ? (
+              messages.map((msg, idx) => (
+                <p key={idx} className="text-orange-500">
+                  {msg}
+                  <br/>
+                </p>
+              ))
+            ) : (
+              <p className="text-gray-400">No responses yet...</p>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Control Buttons */}
-      <div className="control-buttons">
-        <p className={`status ${isConnected ? "connected" : "disconnected"}`}>
+      <div className="flex ml-[920px] space-x-4">
+        <p
+          className={`text-sm font-semibold ${
+            isConnected ? "text-green-500" : "text-red-500"
+          }`}
+        >
           Status: {isConnected ? "Connected to AI" : "Disconnected"}
         </p>
         <button
           onClick={startRecording}
           disabled={!isConnected || isRecording}
-          className={`control-btn ${isRecording || !isConnected ? "disabled" : ""}`}
+          className={`px-4 py-2 rounded ${
+            isRecording || !isConnected
+              ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+              : "bg-green-500 text-white hover:bg-green-600"
+          }`}
         >
           Start Interview
         </button>
         <button
           onClick={stopRecording}
           disabled={!isRecording}
-          className={`control-btn ${!isRecording ? "disabled" : ""}`}
+          className={`px-6 py-2 rounded ${
+            !isRecording
+              ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+              : "bg-red-500 text-white hover:bg-red-600"
+          }`}
         >
           Stop Interview
         </button>
