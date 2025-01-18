@@ -10,12 +10,36 @@ const Resume = () => {
     setFile(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (file) {
-      navigate("/interview"); // Navigate to the Interview page on successful upload
+    if (!file) {
+        setError('Please select a file first.');
+        return;
     }
-  };
+
+    const formData = new FormData();
+    formData.append('pdf', file);
+
+    try {
+        const response = await fetch('http://localhost:3000/upload', {
+            method: 'POST',
+            body: formData,
+        });
+
+        //navigate("/interview");
+
+        if (response.ok) {
+            const data = await response.text();
+            setText(data);
+            setError('');
+        } else {
+            setError('Error uploading file. Please try again.');
+        }
+    } catch (err) {
+        setError('Error: ' + err.message);
+    }
+};
+  
 
   return (
     <div className="resume-upload-container rounded-lg">
