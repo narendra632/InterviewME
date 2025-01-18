@@ -5,6 +5,10 @@ const fs = require('fs');
 const cors = require('cors');
 const { User } = require('./db');
 const path = require('path');
+require('dotenv').config();
+const hf = require("@huggingface/inference");
+
+
 
 
 const app = express();
@@ -92,16 +96,8 @@ app.post('/upload', upload.single('pdf'), (req, res) => {
 });
 
 
-
-
-
-
-
 app.get('/interview-questions', async (req, res) => {
-    const hf = require("@huggingface/inference");
-  
-    const client = new hf.HfInference("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");
-  
+    const client = new hf.HfInference(process.env.HFK);
     const data = await User.find({ questionaries }).sort({ _id: -1 }).limit(1);
     const q = data[0];  // Sending the last item from the array
     
