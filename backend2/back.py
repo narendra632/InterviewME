@@ -38,9 +38,14 @@ class LanguageModelProcessor:
         # Load the system prompt from a file
         with open('system_prompt.txt', 'r', encoding='utf-8') as file:
             system_prompt = file.read().strip()
+
+        with open('resume.txt', 'r', encoding='utf-8') as file:
+            resume_content = file.read().strip()
+
+        combined_content = system_prompt + "\n\n" + resume_content
         
         self.prompt = ChatPromptTemplate.from_messages([
-            SystemMessagePromptTemplate.from_template(system_prompt),
+            SystemMessagePromptTemplate.from_template(combined_content),
             MessagesPlaceholder(variable_name="chat_history"),
             HumanMessagePromptTemplate.from_template("{text}")
         ])
