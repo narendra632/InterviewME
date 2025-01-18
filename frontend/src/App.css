@@ -1,0 +1,39 @@
+.video-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.video-box {
+  width: 45%;
+  text-align: center;
+}
+
+.video {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #000;
+}
+
+
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.video-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+}
+
+.video {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-rad
