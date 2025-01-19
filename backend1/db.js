@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
 
 
 
-mongoose.connect(process.env.MONGO_URL, { 
+mongoose.connect('mongodb+srv://visitor:78230aditya@testingadi.6y5d5.mongodb.net/aiInterview', { 
     useNewUrlParser: true, 
     useUnifiedTopology: true 
 })
@@ -19,8 +18,21 @@ const userSchema = new mongoose.Schema({
 });
 
 
+const jobDSchema = new mongoose.Schema({
+  id: { type: Number, required: true },
+  role: { type: String, required: true },
+  deadline: { type: String },
+  experience: { type: Number },  // corrected spelling
+  requirements: { type: String },
+  description: {type:String}
+});
+
 
 const User = mongoose.model('Users', userSchema);
+const Jobs = mongoose.model('Jobs', jobDSchema);
 
 
-module.exports = { User };
+
+
+
+module.exports = { User,Jobs };
