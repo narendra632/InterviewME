@@ -1,7 +1,0 @@
-
-Role: Marketing Specialist
-Experience: 2 years
-Deadline: 2025-04-10
-Requirements: Digital marketing, content creation, SEO, social media marketing, analytics tools, campaign management, email marketing, branding, Google Ads
-Description: Create marketing campaigns and drive brand awareness through various channels.
-        
