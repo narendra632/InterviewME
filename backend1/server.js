@@ -60,10 +60,10 @@ app.post('/upload', upload.single('pdf'), (req, res) => {
             fs.mkdirSync(outputDir, { recursive: true });
 
             // Define the path for the .txt file in the backend2 directory
-            const txtFilePath = path.join(outputDir, 'system_prompt.txt');
+            const txtFilePath = path.join(outputDir, 'resume.txt');
             
             // Append the extracted text to the .txt file in backend2
-            fs.appendFile(txtFilePath, text + '\n', (err) => {
+            fs.writeFileSync(txtFilePath, text,'utf-8', (err) => {
                 if (err) {
                     console.error('Error appending text to file:', err);
                 } else {
@@ -94,8 +94,42 @@ app.post('/upload', upload.single('pdf'), (req, res) => {
 });
 
 
+const outputDir2 = path.join(__dirname, '..', 'backend2');
 
+// Endpoint for saving job details to jd.txt
+app.post('/save-job', (req, res) => {
+    const jobDetails = req.body; // Job details sent from the frontend
 
+    if (!jobDetails) {
+        return res.status(400).send('No job details provided.');
+    }
+
+    try {
+        // Ensure 'backend2' directory exists
+        fs.mkdirSync(outputDir2, { recursive: true });
+
+        // Path to jd.txt file
+        const jobDetailsFilePath = path.join(outputDir2, 'jd.txt');
+
+        // Format the job details into a readable text
+        const jobDetailsText = `
+Role: ${jobDetails.role}
+Experience: ${jobDetails.experience} years
+Deadline: ${jobDetails.deadline}
+Requirements: ${Array.isArray(jobDetails.requirements) ? jobDetails.requirements.join(', ') : jobDetails.requirements}
+Description: ${jobDetails.description}
+        `;
+
+        // Write the job details to jd.txt
+        fs.writeFileSync(jobDetailsFilePath, jobDetailsText, 'utf-8');
+
+        // Respond with success
+        res.status(200).send('Job details saved successfully.');
+    } catch (err) {
+        console.error('Error saving job details:', err);
+        res.status(500).send('Server error while saving job details.');
+    }
+});
 
 
 
@@ -130,34 +164,37 @@ app.post('/compatibility', async (req, res) => {
       messages: [
         {
           role: "user",
-          content: `You are an AI designed to evaluate the compatibility between job descriptions and resumes.  
+          content: `You are an AI assistant. 
+Job Description: ${JSON.stringify(jd)}
+Resume Data: ${JSON.stringify(rdata)}
 
-Job Description:
-${jd}
-Resume Data:
-${rdata.toString()}
-
-Output:
-Provide a cataory among best,good,average,poor copararing the job description no explanaition only catogoary in one word!!! be tough if youn want, dont see the size of data be tough on all
-`
+extract the skills from the resume and compare with the job requirements skills and reply with only one word: "true" if they match, otherwise "false
+in last tell me in isCompatible: true/false(only)
+".`
         }
       ],
-      max_tokens: 30, // Keep this low to reduce processing time
+      max_tokens: 500, // Limit tokens to avoid extra data
       temperature: 0.8 // Low temperature for deterministic output
     });
 
     // Parse and validate the response
-    const rawResponse = chatCompletion.choices[0];
-    const score = parseFloat(rawResponse);
-
+    const rawResponse = chatCompletion.choices[0].message.content.trim();
+    function extractIsCompatibleValue(text) {
+      const match = text.match(/isCompatible:\s*(true|false)/i);
+      return match ? match[1] : null; // Returns 'true', 'false', or null if not found
+    }
     
-
-    res.json({ rawResponse });
+    const r = extractIsCompatibleValue(rawResponse)
+    console.log(r);
+    
+    res.json({ val: r });
   } catch (error) {
     console.error("Error:", error.message || error);
     res.status(500).json({ error: "Failed to calculate compatibility score" });
   }
 });
+
+
 
 
 
@@ -183,12 +220,12 @@ app.post('/stats', async (req, res) => {
           The questions provided are:
           ${que}
 
-          Please evaluate the following based on the answer and questions, and provide a response in the exact format below (do not add anything else):
+          the following based on the answer and questions,atleast passing marks, and provide a response in the exact json format below (do not add anything else):
 
           {
-            "Accuracy": 0.0,  // Accuracy score of the answer out of 100
-            "Listening Skills": 0.0,  // Listening skills score out of 10
-            "Overall Score": 0.0  // Overall score out of 10
+            "Accuracy": 40/100(default),  // Accuracy score of the answer out of 100
+            "Listening Skills": 6/10(default),  // Listening skills score out of 10
+            "Overall Score": 4/10(default)  // Overall score out of 10
           }
 
           (No other suggetion/feedback just object format)`
@@ -201,9 +238,10 @@ app.post('/stats', async (req, res) => {
     console.log("Chat Completion Response:", chatCompletion.choices[0].message.content);
 
     // Assuming the response is in a 'generated_text' field, adjust if needed
-    const result = chatCompletion?.generated_text || chatCompletion;
+    const result = chatCompletion.choices[0].message.content;
 
     // If the response contains structured data, process it accordingly
+
     res.json(result);
   } catch (error) {
     console.error(error);

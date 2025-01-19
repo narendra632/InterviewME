@@ -42,7 +42,10 @@ class LanguageModelProcessor:
         with open('resume.txt', 'r', encoding='utf-8') as file:
             resume_content = file.read().strip()
 
-        combined_content = system_prompt + "\n\n" + resume_content
+        with open('jd.txt', 'r', encoding='utf-8') as file:
+            jd_content = file.read().strip()
+
+        combined_content = system_prompt +"\n\n" + jd_content + "\n\n" + resume_content
         
         self.prompt = ChatPromptTemplate.from_messages([
             SystemMessagePromptTemplate.from_template(combined_content),

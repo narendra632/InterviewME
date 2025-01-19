@@ -35,48 +35,41 @@ const Resume = () => {
       setError("Please select a file first.");
       return;
     }
-  
-    if (!selectedJob) {
-      setError("Please select a job first.");
-      return;
-    }
-  
+
     const formData = new FormData();
     formData.append("pdf", file);
-    formData.append("id", selectedJob.id); // Pass the selected job ID
-    formData.append("rdata", JSON.stringify({ /* Add resume data here if needed */ }));
-  
-    try {
-      // Make the compatibility API call
-      const response = await fetch("http://localhost:3000/compatibility", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: selectedJob.id,
-          rdata: { /* Include relevant resume data */ },
-        }),
-      });
-  
-      if (response.ok) {
-        const data = await response.json();
 
-        console.log(data.val);
-  
-        if (data.val === "true" || data.val == null || data.val == "") {
-          navigate("/congrats");
-        } else {
-          navigate("/rejects");
-        }
+    try {
+      const response = await fetch("http://localhost:3000/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        navigate("/interview");
+        setError("");
       } else {
-        setError("Error evaluating compatibility. Please try again.");
+        setError("Error uploading file. Please try again.");
       }
+
+      const saveJobResponse = await fetch('http://localhost:3000/save-job', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(selectedJob), // Send the job object as JSON
+      });
+
+      if (!saveJobResponse.ok) {
+          const errorText = await saveJobResponse.text();
+          setError('Error saving job details: ' + errorText);
+          return;
+      }
+
     } catch (err) {
       setError("Error: " + err.message);
     }
   };
-  
 
   const handleCardClick = (job) => {
     setSelectedJob(job);

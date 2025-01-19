@@ -118,6 +118,7 @@ const Interview = () => {
                 <p key={idx} className="text-orange-500">
                   {msg}
                   <br />
+                  <br />
                 </p>
               ))
             ) : (
