@@ -10,6 +10,8 @@ const path = require('path');
 const app = express();
 const upload = multer({ dest: 'uploads/' }); 
 
+const nodemailer = require("nodemailer")
+
 //const rdata = "";
 
 app.use(express.json())
@@ -196,9 +198,6 @@ in last tell me in isCompatible: true/false(only)
 
 
 
-
-
-
 app.post('/stats', async (req, res) => {
   const hf = require('@huggingface/inference');
   const client = new hf.HfInference('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');
@@ -240,15 +239,37 @@ app.post('/stats', async (req, res) => {
     // Assuming the response is in a 'generated_text' field, adjust if needed
     const result = chatCompletion.choices[0].message.content;
 
-    // If the response contains structured data, process it accordingly
+    async function sendEmail() {
+      // Create a transporter using your SMTP credentials
+      let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false, 
+        auth: {
+          user: "mrperfectth7@gmail.com",
+          pass: "kzamaqguggicaehb", 
+        },
+      });
+    
+      // Send the email
+      let info = await transporter.sendMail({
+        from: '"Interview ME" <mrperfectth7@gmail.com>', 
+        to: "jadhavaditya080@gmail.com", 
+        subject: "Feedback of the Interview from AI", 
+        text: result, 
+      });
+      
+      console.log("Message sent: %s", info.messageId);
+    }
 
+    // If the response contains structured data, process it accordingly
+    sendEmail();
     res.json(result);
   } catch (error) {
     console.error(error);
     res.status(500).send("Error fetching interview questions");
   }
 });
-
 
 
 

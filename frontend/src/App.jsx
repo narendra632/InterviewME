@@ -5,6 +5,7 @@ import Interview from './components/Interview';
 import LandingPage from './components/LandingPage';
 import Rejection from './components/Rejection';
 import Congrats from './components/Congrats';
+import End from './components/End';
 import './index.css';
 
 
@@ -17,7 +18,8 @@ const App = () => {
           <Route path="/resume" element={<Resume />} />
           <Route path="/interview" element={<Interview />} />
           <Route path="/congrats" element={<Congrats/>}/>
-          <Route path="rejects" element={<Rejection/>}/>
+          <Route path="/rejects" element={<Rejection/>}/>
+          <Route path="/end" element={<End/>}/>
 
         </Routes>
       </Router>

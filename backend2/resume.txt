@@ -1,55 +1,58 @@
 
 
-Narendra Rathore Email : narendrasinghrathore7620@gmail.com
-linkedin.com/in/rathore-narendra/ Mobile : +91-8055361054
-narendrasingh.co/ github.com/narendra632
-Education
+Aditya Anil Jadhav
+Pune, India • +91-7823076475 • adityajadhav14143@gmail.com • linkedin.com/in/aditya-jadhav-926b95259/
 • 
-Nutan College of Engineering and Research Pune, MH
-Bachelor of Technology in Computer Science and Engineering CGPA - 7.64 2021 – 2025
-Experience
+github.com/aditya78230 
 • 
-AI UNIKA Technologies Pune, MH
-Full Stack Intern Nov 2024 - Present
-◦ Application Development: Worked in a team on 3 different projects and contributed to building of UI and
-development of scalable applications for clients using Next.js and Node.js.
-◦ API Integration: Built and integrated RESTful APIs to connect frontend applications with backend systems,
-with secure and 30% faster data transfer.
-◦ UI/UX: Improved user experiences by creating responsive and accessible UI components and made the application
-completely mobile-responsive with Tailwind CSS and React.
-◦ Collaboration Tools: Used Agile methodologies for project management and Git version control for testing,
-debugging and deployment.
+leetcode.com/Aditya_jadhav27 
 • 
-Learnix-IT Bangaluru, KA
-Web Developer Intern Jul 2024 - Nov 2024
-◦ Web Platform: Developed the company’s platform website, implementing core features including social
-authentication, admin dashboard and PhonePe payment integration.
-◦ Hosting & SEO: Improved website traffic by 40% through search engine optimization and handled continuous
-deployment on Heroku.
-◦ UI/UX: Developed a client’s credit bank website, focusing on UI design, secure user authentication, and user
-dashboard implementation to elevate customer experience.
-Projects
-• Deepfake Detector: Developed an application for detection of facially altered videos and achieved 85% accuracy with
-confidence analysis.
-◦ Model Training: Trained the model on 4000 videos using ResNext and LSTM algorithms, improving prediction
-accuracy and reliability.
-◦ Web Application: Created a web application using Django for users to upload videos for deepfake detection.
-◦ Twitter Integration: Built a web scraper to fetch #deepfakedornot flagged posts from Twitter (X), enabling
-video search, download, testing, and notifying users about the authenticity of their uploads.
-• Codement 24: Developed the hackathon website, displaying event details and facilitating participant registrations.
-◦ SEO & Hosting: Built using Django and Bootstrap, with SEO best practices to improve visibility and website
-ranking. Hosted on Heroku at www.codement.tech/codement-24
-◦ Registrations: Website garnered more than 6000 visits, successfully registering 100 teams (380 participants) for
-the hackathon.
-Skills
-Languages: JavaScript, Typescript, Python, SQL, C, C++, Java
-Frameworks: React.js, Node.js, Flask, Django, Next.js, Express.js, Bootstrap, Tailwind
-Web Development: HTML, CSS, Jquery, RESTful APIs, Postman, MySQL, Git, Figma
-Technical Skills: Full Stack Development, Web Hosting & SEO, Data Structures and Algorithms, Testing and Debugging
-Courses: Full Stack Open by University of Helsinki, Blockchain Developer Program by Solana Foundation & Nas.io
-Achievements
-• Ranked in top 5 teams for 2 national level hackathon , winner of inter collegiate Project expo outperforming 50 teams
-• Being IIC Coordinator represented the institute at IIC Regional Meet 2023 for outstanding contributions to innovation
-and startup ecosystem.
-• Started a community named Codement at campus and Led marketing, sponsorships, and execution of two national-level
-hackathons, managing a team of 50 members as the club lead.
+Hackerrank/adityajadhav1411 
+• 
+Portfolio
+EDUCATION
+B.Tech., Computer Science Engineering 2021 - 2025
+PCET’s Nutan College Of Engineering And Research CGPA: 7.60
+XII (H.S.C) 2021
+Sau Anusaya Vadhokar Higher Secondary School percentage: 77.2
+TECHNICAL SKILLS
+Programming: Java, C, Javascript, HTML.
+Frameworks/Libraries: ReactJs, ExpressJs, Bootstrap, Zod.
+Database: MongoDB, mySQL.
+Development Practices: Agile methodology, Extreme Programming, Prototype methodology.
+Tools: Linux, Postman, RestAPI, Node.js, Github, Git, VsCode.
+SoftSkills: Problem Solving, Analytical Skills, Teamwork.
+PROFESSIONAL EXPERIENCE
+Celebal Technologies : Summer Intern 
+May 2024 - July 2024
+• Engineered new e-commerce features with ReactJS, boosting user engagement by 20% and decreasing page load
+times by 30%, enhancing overall site performance.
+• Spearheaded a team of five to create a Spotify clone and e-commerce platform using ReactJS, delivering projects
+two weeks ahead of schedule and attaining a 95% code quality score in peer reviews.
+TechnoHacks EduTech : Java Programming February 2024 - March 2024
+• Produced high-quality code for three major projects, consistently meeting deadlines and earning commendation for
+precision and efficiency.
+ACADEMIC PROJECTS
+EduSphere: AI-Powered Virtual Classroom Assistant Source-code
+• Engineered EduSphere using the MERN stack under Agile methodology, enabling real-time student-teacher
+interaction and doubt resolution. Achieved an 85% satisfaction rate and successfully scaled the platform to support
+over 100 active users.
+EchoStream: News on the Go Source-code
+• C
+rafted a cross-platform news application with Flutter and Dart, enhancing accessibility via text-to-speech
+and live streaming, 
+leading to a 50% boost in user engagement.
+Guardian AI: Real-Time Face Detection for Enhanced Security Source-code
+• Engineered an IoT-integrated facial recognition system with Python and OpenCV, achieving 89% accuracy in
+real-time detection for security applications..
+• Utilized the LBPH algorithm for facial recognition, with Python and OpenCV for image processing and real-time data
+analysis.
+ACHIEVEMENTS
+• Secured a finalist position out of over 100 teams in the Machine Learning Hackathon at IIT Kharagpur by
+engineering a predictive model with 82% accuracy.
+• Achieved 1st Runner-up in an institute-level coding competition, surpassing 200 participants by solving complex
+algorithmic challenges 20% faster than average.
+• Earned certification as a Software Engineer Intern from HackerRank, placing in the top 5% for problem-solving skills
+and technical proficiency.
+• Ranked as a top performer in the TechGIG Coding competition, placing in the top 1% out of 50,000 participants by
+solving advanced coding problems with a 98% accuracy rate.

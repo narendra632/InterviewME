@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "./CSS/Interview.css";
 
 const Interview = () => {
@@ -6,11 +7,15 @@ const Interview = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [messages, setMessages] = useState([]);
+  const [transcribedText, setTranscribedText] = useState("");
+
+  const navigate = useNavigate();
 
   const localVideoRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
   const socketRef = useRef(null);
+  const recognitionRef = useRef(null);
 
   // Handle camera logic
   React.useEffect(() => {
@@ -83,16 +88,48 @@ const Interview = () => {
       .catch((err) => console.error("Error accessing audio:", err));
   };
 
-  // Stop recording and close the WebSocket
   const stopRecording = () => {
     setIsRecording(false);
-    if (mediaRecorderRef.current) {
-      mediaRecorderRef.current.stop();
+    mediaRecorderRef.current?.stop();
+    if (recognitionRef.current) {
+      recognitionRef.current.stop(); // Stop speech recognition
     }
+  
+    if (socketRef.current && isConnected) {
+      // Send the transcribed text to WebSocket as before
+      socketRef.current.send(transcribedText); 
+      console.log(transcribedText);
+      
+      
+      // Prepare data for API call
+      const apiData = {
+        ans: transcribedText, // Transcribed text
+        que: messages.join("\n") // Combine all messages into a single string
+      };
+  
+      // Make the API call
+      fetch("http://localhost:3000/stats", { 
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(apiData)
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch interview stats");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log("Interview Evaluation Response:", data);
+          // Handle the evaluation response as needed, e.g., display in UI
+        })
+        .catch((error) => {
+          console.error("Error during API call:", error);
+        });
 
-    if (socketRef.current) {
-      socketRef.current.close();
-      socketRef.current = null;
+        navigate("/end");
     }
   };
 

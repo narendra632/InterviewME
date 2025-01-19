@@ -1,7 +1,7 @@
 
-Role: Product Manager
-Experience: 5 years
-Deadline: 2025-04-01
-Requirements: ExperProduct development, stakeholder management, strategic planning, market research, Agile methodology, communication skills, problem-solving, UX/UI principles, business analysis
-Description: Responsible for the strategy, roadmap, and feature definition of a product.
+Role: Marketing Specialist
+Experience: 2 years
+Deadline: 2025-04-10
+Requirements: Digital marketing, content creation, SEO, social media marketing, analytics tools, campaign management, email marketing, branding, Google Ads
+Description: Create marketing campaigns and drive brand awareness through various channels.
         
