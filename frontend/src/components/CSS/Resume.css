@@ -1,72 +1,208 @@
 :root {
-    --box-bg-color: #ffffff;
-    --text-highlight: #ff6ec4;
-    --border-glow: linear-gradient(90deg, #ff6ec4, #42d392);
-    --font-color: #000000;
-    --hover-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  --box-bg-color: #ffffff;
+  --job-card-bg: linear-gradient(145deg, #f2d349, #e6bf3d);
+  --job-card-hover-bg: linear-gradient(145deg, #e6bf3d, #d1a937);
+  --popup-bg-gradient: linear-gradient(120deg, #ffffff, #f9f9f9);
+  --text-highlight: #000000;
+  --font-color: #000000;
+  --heading-font-color: #2c3e50;
+  --heading-font: "Montserrat", sans-serif;
+  --body-font: "Poppins", sans-serif;
+  --selected-border: #42d392;
+}
+
+body {
+  font-family: var(--body-font);
+  margin: 0;
+  background-color: #f7f7f7;
+  color: var(--font-color);
+}
+
+.error {
+  color: red;
+  font-size: 1rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+
+.resume-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 30px;
+}
+
+.job-selection {
+  text-align: center;
+  width: 80%;
+}
+
+.job-heading {
+  font-size: 2.2rem;
+  color: var(--heading-font-color);
+  font-family: var(--heading-font);
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.job-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.job-card {
+  background: var(--job-card-bg);
+  color: var(--font-color);
+  padding: 20px;
+  border-radius: 20px;
+  width: 220px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card.selected {
+  border: 3px solid var(--selected-border);
+  transform: scale(1.05);
+}
+
+.job-card:hover {
+  background: var(--job-card-hover-bg);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.job-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.job-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.upload-card {
+  background: var(--popup-bg-gradient);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.upload-heading {
+  font-size: 2rem;
+  color: var(--heading-font-color);
+  font-family: var(--heading-font);
+  margin-bottom: 20px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+input[type="file"] {
+  margin: 15px 0;
+  font-size: 1rem;
+}
+
+button {
+  background-color: var(--text-highlight);
+  border: none;
+  color: var(--box-bg-color);
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-card {
+  background: var(--popup-bg-gradient);
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-card h2 {
+  font-size: 2.5rem;
+  color: var(--heading-font-color);
+  margin-bottom: 20px;
+}
+
+.popup-card p {
+  font-size: 1.1rem;
+  color: var(--font-color);
+  margin: 15px 0;
+}
+
+.popup-card p strong {
+  color: var(--text-highlight);
+}
+
+.popup-card .divider {
+  margin: 20px 0;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.checkbox-container {
+  margin-top: 20px;
+}
+
+.checkbox-container label {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.checkbox-container input {
+  margin-right: 10px;
+  transform: scale(1.5);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  
-  body {
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    background-color: #f7f7f7;
-    background-image: radial-gradient(#000000 0.5px, transparent 0.5px);
-    background-size: 20px 20px;
-    color: var(--font-color);
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .resume-upload-container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 30px;
-  }
-  
-  .upload-card {
-    background: var(--box-bg-color);
-    padding: 50px;
- /* Rounded corners */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    border-image-source: var(--border-glow);
-    border-image-slice: 1;
-    max-width: 500px;
-    width: 100%;
-    transition: transform 0.3s ease-in-out; /* Removed hover popup */
-  }
-  
-  .upload-heading {
-    font-size: 1.8rem;
-    color: var(--text-highlight);
-    margin-bottom: 20px;
-    font-weight: 700;
-  }
-  
-  form {
-    margin-top: 20px;
-  }
-  
-  input[type="file"] {
-    margin: 15px 0;
-    font-size: 1rem;
-  }
-  
-  button {
-    background: var(--border-glow);
-    border: none;
-    color: var(--font-color);
-    padding: 12px 25px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  button:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--hover-shadow);
-  }
-  
+}

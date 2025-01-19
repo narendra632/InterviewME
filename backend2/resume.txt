@@ -1,90 +1,55 @@
 
 
-NARENDRA RATHORE
-Full Stack Developer and Web UI/UX
-@ narendrasinghrathore7620@gmail.com  +91-8055361054 * Pune, Maharashtra
- www.narendrasingh.co § narendra632 ï rathore-narendra/
-EXPERIENCE
-Web Developer Intern
-Learnix-IT Pvt Ltd
-z July 2024 – Ongoing * Bangalore(Remote)
-• Developed the company’s platform website(www.learnixit.com), man-
-aging frontend/backend, with a modern UI, social authentication, admin
-dashboard and PhonePe payment integration.
-• Deployed via GitHub CI/CD on Heroku and optimized SEO, boosting
-site traffic by 40%.
-• Built and deployed a responsive preschool website for a client, KidClap
-Academy, managing the entire project from UI design to hosting and
-SEO optimization (www.kidclapacademy.com).
-• Currently collaborating in a team to develop a new credit bank’s web-
-site, focusing on UI design, secure user authentication, and user dash-
-board implementation to elevate customer experience.
-Community lead & Developer
-Codement
-z Jan 2023 – April 2024 * Pune,MH
-• Initiated and led Codement, a tech community, creating and maintaining
-the resource platform for students at www.codement.tech using Python
-Django.
-• Developed a scalable website with a clean UI/UX, implementing fea-
-tures for user signups, content management and updates for community
-events and projects.
-• Led a team of 25 individuals to plan and manage community activities,
-positioning Codement as a thriving tech community on Nutan Campus.
-SKILLS
-Web Development MERN Stack UI/UX Design NextJS
-Web hosting & SEO Python(Django & Flask) MySQL C++
-Javascript Bootstrap tailwind Git(Version Control)
-EDUCATION
-B.Tech in Computer Science and Engineering
-Dr. Babasaheb Ambedkar Technological University
-z 2021 – 2025 * Pune, Maharashtra
-TRAINING/COURSES
-Full Stack Open by University of Helsinki 
-Blockchain Developer Program by Solana Foundation & Nas.io 
-ABOUT ME
-I am a Full Stack Web Developer with 2
-years of experience delivering dynamic, re-
-sponsive, and high-performance web ap-
-plications. My expertise includes front-end
-technologies like React, Tailwind, and JavaScript,
-as well as back-end frameworks like Flask,
-Django, and Next.js. I have a strong focus on
-building scalable, user-friendly solutions and
-staying current with emerging trends in web
-development.
-PROJECTS
-Deepfake Detection 
-Detection of facially altered videos achieving
-85% accuracy with confidence analysis.
-• Trained the model on 4000 videos, improving
-prediction accuracy and reliability.
-• Created a web application using Django for
-users to upload videos for deepfake detection.
-• Built a web scraper to fetch #deepfakedornot
-flagged posts from Twitter (X), enabling video
-search, download, testing, and notifying users
-about the authenticity of their uploads.
-Codement_24 
-Developed the hackathon website, display-
-ing event details and facilitating participant
-registrations.
-• Built using Django and Bootstrap, with SEO
-best practices to improve visibility and website
-ranking.
-• Website garnered more than 6000 visits, suc-
-cessfully registering 100 teams (380 partici-
-pants) for the hackathon.
-VOLUNTEERING
-Event Lead (Codement Community)
-• Led marketing, sponsorships, and execution
-of two national-level hackathons, managing a
-team of 50 individuals as the event lead.
-IIC Coordinator (Institute’s Innovation Council)
-• Led the team to plan and execute technical
-events, including an intercollegiate Shark Tank
-and a 2-day Ideathon for startup enthusiasts
-• Developed and managed the "Antarang - Inno-
-vation Fest" website, alongside event market-
-ing and participant management.
-• Represented our institution at the IIC Regional
-Meet 2023 held at Dy Patil Vidyapeeth, Pune.
+Narendra Rathore Email : narendrasinghrathore7620@gmail.com
+linkedin.com/in/rathore-narendra/ Mobile : +91-8055361054
+narendrasingh.co/ github.com/narendra632
+Education
+• 
+Nutan College of Engineering and Research Pune, MH
+Bachelor of Technology in Computer Science and Engineering CGPA - 7.64 2021 – 2025
+Experience
+• 
+AI UNIKA Technologies Pune, MH
+Full Stack Intern Nov 2024 - Present
+◦ Application Development: Worked in a team on 3 different projects and contributed to building of UI and
+development of scalable applications for clients using Next.js and Node.js.
+◦ API Integration: Built and integrated RESTful APIs to connect frontend applications with backend systems,
+with secure and 30% faster data transfer.
+◦ UI/UX: Improved user experiences by creating responsive and accessible UI components and made the application
+completely mobile-responsive with Tailwind CSS and React.
+◦ Collaboration Tools: Used Agile methodologies for project management and Git version control for testing,
+debugging and deployment.
+• 
+Learnix-IT Bangaluru, KA
+Web Developer Intern Jul 2024 - Nov 2024
+◦ Web Platform: Developed the company’s platform website, implementing core features including social
+authentication, admin dashboard and PhonePe payment integration.
+◦ Hosting & SEO: Improved website traffic by 40% through search engine optimization and handled continuous
+deployment on Heroku.
+◦ UI/UX: Developed a client’s credit bank website, focusing on UI design, secure user authentication, and user
+dashboard implementation to elevate customer experience.
+Projects
+• Deepfake Detector: Developed an application for detection of facially altered videos and achieved 85% accuracy with
+confidence analysis.
+◦ Model Training: Trained the model on 4000 videos using ResNext and LSTM algorithms, improving prediction
+accuracy and reliability.
+◦ Web Application: Created a web application using Django for users to upload videos for deepfake detection.
+◦ Twitter Integration: Built a web scraper to fetch #deepfakedornot flagged posts from Twitter (X), enabling
+video search, download, testing, and notifying users about the authenticity of their uploads.
+• Codement 24: Developed the hackathon website, displaying event details and facilitating participant registrations.
+◦ SEO & Hosting: Built using Django and Bootstrap, with SEO best practices to improve visibility and website
+ranking. Hosted on Heroku at www.codement.tech/codement-24
+◦ Registrations: Website garnered more than 6000 visits, successfully registering 100 teams (380 participants) for
+the hackathon.
+Skills
+Languages: JavaScript, Typescript, Python, SQL, C, C++, Java
+Frameworks: React.js, Node.js, Flask, Django, Next.js, Express.js, Bootstrap, Tailwind
+Web Development: HTML, CSS, Jquery, RESTful APIs, Postman, MySQL, Git, Figma
+Technical Skills: Full Stack Development, Web Hosting & SEO, Data Structures and Algorithms, Testing and Debugging
+Courses: Full Stack Open by University of Helsinki, Blockchain Developer Program by Solana Foundation & Nas.io
+Achievements
+• Ranked in top 5 teams for 2 national level hackathon , winner of inter collegiate Project expo outperforming 50 teams
+• Being IIC Coordinator represented the institute at IIC Regional Meet 2023 for outstanding contributions to innovation
+and startup ecosystem.
+• Started a community named Codement at campus and Led marketing, sponsorships, and execution of two national-level
+hackathons, managing a team of 50 members as the club lead.

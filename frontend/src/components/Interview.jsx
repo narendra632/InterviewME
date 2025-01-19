@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import "./CSS/Interview.css";
 
 const Interview = () => {
@@ -12,31 +12,8 @@ const Interview = () => {
   const audioChunksRef = useRef([]);
   const socketRef = useRef(null);
 
-  useEffect(() => {
-    const ws = new WebSocket("ws://localhost:8765");
-
-    ws.onopen = () => {
-      console.log("WebSocket connected");
-      setIsConnected(true);
-    };
-
-    ws.onclose = () => {
-      console.log("WebSocket disconnected");
-      setIsConnected(false);
-    };
-
-    ws.onmessage = (event) => {
-      setMessages((prev) => [...prev, event.data]);
-    };
-
-    socketRef.current = ws;
-
-    return () => {
-      ws.close();
-    };
-  }, []);
-
-  useEffect(() => {
+  // Handle camera logic
+  React.useEffect(() => {
     if (isCameraOn) {
       navigator.mediaDevices
         .getUserMedia({ video: true, audio: false })
@@ -55,8 +32,30 @@ const Interview = () => {
     }
   }, [isCameraOn]);
 
+  // Start the WebSocket and recording
   const startRecording = () => {
     setIsRecording(true);
+
+    // Initialize WebSocket connection
+    const ws = new WebSocket("ws://localhost:8765");
+
+    ws.onopen = () => {
+      console.log("WebSocket connected");
+      setIsConnected(true);
+    };
+
+    ws.onclose = () => {
+      console.log("WebSocket disconnected");
+      setIsConnected(false);
+    };
+
+    ws.onmessage = (event) => {
+      setMessages((prev) => [...prev, event.data]);
+    };
+
+    socketRef.current = ws;
+
+    // Start audio recording
     navigator.mediaDevices
       .getUserMedia({ audio: true })
       .then((stream) => {
@@ -72,7 +71,7 @@ const Interview = () => {
             type: "audio/wav",
           });
 
-          if (socketRef.current && isConnected) {
+          if (socketRef.current && socketRef.current.readyState === WebSocket.OPEN) {
             socketRef.current.send(audioBlob);
           }
 
@@ -84,11 +83,18 @@ const Interview = () => {
       .catch((err) => console.error("Error accessing audio:", err));
   };
 
+  // Stop recording and close the WebSocket
   const stopRecording = () => {
     setIsRecording(false);
-    mediaRecorderRef.current?.stop();
-  };
+    if (mediaRecorderRef.current) {
+      mediaRecorderRef.current.stop();
+    }
 
+    if (socketRef.current) {
+      socketRef.current.close();
+      socketRef.current = null;
+    }
+  };
 
   return (
     <div className="flex flex-col items-center p-8 space-y-8">
@@ -111,7 +117,7 @@ const Interview = () => {
               messages.map((msg, idx) => (
                 <p key={idx} className="text-orange-500">
                   {msg}
-                  <br/>
+                  <br />
                 </p>
               ))
             ) : (
@@ -132,9 +138,9 @@ const Interview = () => {
         </p>
         <button
           onClick={startRecording}
-          disabled={!isConnected || isRecording}
+          disabled={isConnected || isRecording}
           className={`px-4 py-2 rounded ${
-            isRecording || !isConnected
+            isRecording || isConnected
               ? "bg-gray-300 text-gray-500 cursor-not-allowed"
               : "bg-green-500 text-white hover:bg-green-600"
           }`}
@@ -143,9 +149,9 @@ const Interview = () => {
         </button>
         <button
           onClick={stopRecording}
-          disabled={!isRecording}
+          disabled={!isConnected}
           className={`px-6 py-2 rounded ${
-            !isRecording
+            !isConnected
               ? "bg-gray-300 text-gray-500 cursor-not-allowed"
               : "bg-red-500 text-white hover:bg-red-600"
           }`}
