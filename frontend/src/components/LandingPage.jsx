@@ -46,7 +46,7 @@ const LandingPage = () => {
       {/* Main Content */}
       <div className="content text-center px-4">
         <h1 className="text-3xl md:text-6xl font-bold leading-snug relative">
-          You're just one step away<br />
+          You're just one step away<br />from your goal.<br/>
           <span className="magic">
             <span className="magic-star">
               <svg viewBox="0 0 512 512">

@@ -1,0 +1,7 @@
+
+Role: Software Engineer
+Experience: 3 years
+Deadline: 2025-02-28
+Requirements: Java, C++, problem-solving, data structures, algorithms, debugging, software architecture, Agile methodology, Git
+Description: Responsible for developing and maintaining software applications.
+        

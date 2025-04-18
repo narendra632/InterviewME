@@ -1,0 +1,55 @@
+
+
+Narendra Rathore Email : narendrasinghrathore7620@gmail.com
+linkedin.com/in/rathore-narendra/ Mobile : +91-8055361054
+narendrasingh.co/ github.com/narendra632
+Education
+• 
+Nutan College of Engineering and Research Pune, MH
+Bachelor of Technology in Computer Science and Engineering CGPA - 7.64 2021 – 2025
+Experience
+• 
+AI UNIKA Technologies Pune, MH
+Full Stack Intern Nov 2024 - Jan 2025
+◦ Application Development: Worked in a team on 3 different projects and contributed to building of UI and
+development of scalable applications for clients using Next.js and Node.js.
+◦ API Integration: Built and integrated RESTful APIs to connect frontend applications with backend systems,
+with secure and 30% faster data transfer.
+◦ UI/UX: Improved user experiences by creating responsive and accessible UI components and made the application
+completely mobile-responsive with Tailwind CSS and React.
+◦ Collaboration Tools: Used Agile methodologies for project management and Git version control for testing,
+debugging and deployment.
+• 
+Learnix-IT Bangaluru, KA
+Web Developer Intern Jul 2024 - Nov 2024
+◦ Web Platform: Developed the company’s platform website, implementing core features including social
+authentication, admin dashboard and PhonePe payment integration.
+◦ Hosting & SEO: Improved website traffic by 40% through search engine optimization and handled continuous
+deployment on Heroku.
+◦ UI/UX: Developed a client’s credit bank website, focusing on UI design, secure user authentication, and user
+dashboard implementation to elevate customer experience.
+Projects
+• Deepfake Detector: Developed an application for detection of facially altered videos and achieved 85% accuracy with
+confidence analysis.
+◦ Model Training: Trained the model on 4000 videos using ResNext and LSTM algorithms, improving prediction
+accuracy and reliability.
+◦ Web Application: Created a web application using Django for users to upload videos for deepfake detection.
+◦ Twitter Integration: Built a web scraper to fetch #deepfakedornot flagged posts from Twitter (X), enabling
+video search, download, testing, and notifying users about the authenticity of their uploads.
+• Codement 24: Developed the hackathon website, displaying event details and facilitating participant registrations.
+◦ SEO & Hosting: Built using Django and Bootstrap, with SEO best practices to improve visibility and website
+ranking. Hosted on Heroku at www.codement.tech/codement-24
+◦ Registrations: Website garnered more than 6000 visits, successfully registering 100 teams (380 participants) for
+the hackathon.
+Skills
+Languages: JavaScript, Typescript, Python, SQL, C, C++, Java
+Frameworks: React.js, Node.js, Flask, Django, Next.js, Express.js, Bootstrap, Tailwind
+Web Development: HTML, CSS, Jquery, RESTful APIs, Postman, MySQL, Git, Figma
+Technical Skills: Full Stack Development, Web Hosting & SEO, Data Structures and Algorithms, Testing and Debugging
+Courses: Full Stack Open by University of Helsinki, Blockchain Developer Program by Solana Foundation & Nas.io
+Achievements
+• Ranked in top 5 teams for 2 national level hackathon , winner of inter collegiate Project expo outperforming 50 teams
+• Being IIC Coordinator represented the institute at IIC Regional Meet 2023 for outstanding contributions to innovation
+and startup ecosystem.
+• Started a community named Codement at campus and Led marketing, sponsorships, and execution of two national-level
+hackathons, managing a team of 50 members as the club lead.

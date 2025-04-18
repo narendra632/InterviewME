@@ -115,11 +115,11 @@ app.post('/save-job', (req, res) => {
 
         // Format the job details into a readable text
         const jobDetailsText = `
-Role: ${jobDetails.role}
-Experience: ${jobDetails.experience} years
-Deadline: ${jobDetails.deadline}
-Requirements: ${Array.isArray(jobDetails.requirements) ? jobDetails.requirements.join(', ') : jobDetails.requirements}
-Description: ${jobDetails.description}
+          Role: ${jobDetails.role}
+          Experience: ${jobDetails.experience} years
+          Deadline: ${jobDetails.deadline}
+          Requirements: ${Array.isArray(jobDetails.requirements) ? jobDetails.requirements.join(', ') : jobDetails.requirements}
+          Description: ${jobDetails.description}
         `;
 
         // Write the job details to jd.txt
@@ -148,7 +148,7 @@ app.get('/jobs',async (req,res)=>{
 
 app.post('/compatibility', async (req, res) => {
   const hf = require('@huggingface/inference');
-  const client = new hf.HfInference('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');
+  const client = new hf.HfInference(process.env.HFK);
 
   try {
     // Use lean() for faster MongoDB queries
@@ -200,7 +200,7 @@ in last tell me in isCompatible: true/false(only)
 
 app.post('/stats', async (req, res) => {
   const hf = require('@huggingface/inference');
-  const client = new hf.HfInference('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');
+  const client = new hf.HfInference(process.env.HFK);
 
   const ans = req.body.ans;
   const que = req.body.que;

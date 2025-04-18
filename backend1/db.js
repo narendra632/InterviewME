@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
+const env = require('dotenv');
 
 
-
-mongoose.connect('mongodb+srv://visitor:78230aditya@testingadi.6y5d5.mongodb.net/aiInterview', { 
+mongoose.connect(process.env.MONGO_URI, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true 
 })
@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   extractedText: { type: String },
-  questionaries: { type: Object },  // corrected spelling
+  questionaries: { type: Object },  
   stats: { type: Object }
 });
 
@@ -22,7 +22,7 @@ const jobDSchema = new mongoose.Schema({
   id: { type: Number, required: true },
   role: { type: String, required: true },
   deadline: { type: String },
-  experience: { type: Number },  // corrected spelling
+  experience: { type: Number },  
   requirements: { type: String },
   description: {type:String}
 });
